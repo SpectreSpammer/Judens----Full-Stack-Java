@@ -1,0 +1,46 @@
+Create a java class named EmployeeManagementSystem
+-- Inside the class, create variables to store information of employees. For each employee, you should have:
+
+   Name (String)
+   Age (int)
+   Employee ID (long)
+   Department (String)
+   Salary (double)
+   IsReadyForRetire (boolean)
+
+Instructions
+1. Check if any of the employees are eligible for
+ retirement (assume retirement age is 65). //can use Ternary Operator
+2. Calculate the average salary per department
+3. Calculate the average age of the employees
+4. Give 5% raise for all employees except for a salary of 50k php and above
+5. Print out all the results in a formatted manner.
+
+
+Sample Output:
+1. Retirement Eligibility:
+   Is anyone eligible for retirement? Yes
+   Employees eligible for retirement:
+   - garp
+   - sengoku
+   Employees are not eligible for retirement:
+   - luffy
+   - boa
+2. Average Salary per Department
+   - IT:  Php 45000.0
+   - Admin:  Php 49000.0
+   - HR:  Php 65000.0
+3. Average age of all employees
+   - Average age:  49
+4. 5% raise to all employees except with a salary of 50k
+   - Before
+   - luffy: 35000.00 PHP
+   - boa: 55000.00 PHP
+   - garp: 49000.00 PHP
+   - sengoku: 65000.00 PHP
+
+   - After
+   - luffy: 36750.00 PHP
+   - boa: 55000.00 PHP
+   - garp: 51450.00 PHP
+   - sengoku: 65000.00 PHP
