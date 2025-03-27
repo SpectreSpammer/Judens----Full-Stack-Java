@@ -1,0 +1,42 @@
+Create a java class named EmployeeManagementSystem
+-- Inside the class, create variables to store information for three employees. For each employee, you should have:
+Convert it to arrays
+   Name (String)
+   Age (int)
+   Employee ID (long)
+   Department (String)
+   Salary (double)
+   IsReadyForRetire (boolean)
+
+   Instructions
+   1. (if-else statements): Checks retirement eligibility based on the employee's age.
+   2. (switch statements): Provides information about different departments.
+   3. (for loop): Projects an employee's salary over a specified number of years.
+   4.  (while loop): Validates the last 4 digits of an employee's ID.
+   5.  (do-while loop): Simulates a payroll processing system.
+
+   Sample Output:
+   Task 1: Retirement Eligibility Check
+   Luffy is not eligible for retirement yet.
+   Zoro is eligible for retirement.
+   Nami is not eligible for retirement yet.
+
+   Task 2: Department Information
+   IT Department: Responsible for maintaining computer systems and networks.
+
+   Task 3: Salary Increment
+   Projected salary for Luffy over 5 years:
+   Year 1: Php 1837500.00
+   Year 2: Php 1929375.00
+   Year 3: Php 2025843.75
+   Year 4: Php 2127135.94
+   Year 5: Php 2233492.73
+
+   Task 4: Employee ID Validation
+   Employee ID 987654321012 is valid.
+
+   Task 5: Payroll Processing
+   Processing payroll for employee 1
+   Processing payroll for employee 2
+   Processing payroll for employee 3
+   Payroll processing completed for 3 employees.

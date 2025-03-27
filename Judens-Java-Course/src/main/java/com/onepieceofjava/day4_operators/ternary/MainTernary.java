@@ -1,5 +1,6 @@
 package com.onepieceofjava.day4_operators.ternary;
 
+
 public class MainTernary {
 
     public static void main(String[] args) {
@@ -20,5 +21,7 @@ public class MainTernary {
         String receivedBonus = isReceiveTheBonus ? "received bonus" : "not yet received the bonus";
 
         System.out.println("Judens has: "  + receivedBonus);
+
+
     }
 }
