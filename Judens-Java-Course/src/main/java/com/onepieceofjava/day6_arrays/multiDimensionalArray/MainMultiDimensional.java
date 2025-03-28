@@ -21,6 +21,7 @@ public class MainMultiDimensional {
                 System.out.printf(" %s received a 10%% raise, Original Salary: Php %.4f, New Salary: %.2f %n,",
                         employeeData[i][0],           originalSalary,                 employeeData[i][1] );
                 /*
+                        -- format function
                     %s -> String format
                     %.2f -> double/float decimal places
                     %n -> new line
