@@ -1,0 +1,34 @@
+Methods:
+-An interface can only have abstract methods (before Java 8). From Java 8 onwards, it can include default and static methods with implementations.
+-An abstract class can have both abstract and concrete (implemented) methods.
+
+Fields:
+-An interface can only have public, static, and final constants.
+-An abstract class can have instance variables that are non-final and non-static, allowing it to maintain state.
+
+Constructors:
+-An interface cannot have constructors because it cannot be instantiated.
+-An abstract class can have constructors that can be used to initialize fields for its subclasses.
+
+Multiple Inheritance:
+-A class can implement multiple interfaces, enabling multiple inheritance of behavior.
+-A class can only extend one abstract class due to Java’s single inheritance model.
+
+Access Modifiers:
+-Methods in an interface are public by default and cannot have any other access modifier.
+-An abstract class can have methods with any access level, such as private, protected, or public.
+
+Performance:
+-Interfaces can be slightly slower because method calls require dynamic method lookup at runtime (especially for default methods).
+-Abstract classes are slightly faster since method calls are resolved directly.
+
+✅ Use an Interface when:
+-You want to define a contract without implementation.
+(interface sets rules (a contract) that any implementing class must follow, without providing the actual logic for those rules. )
+-You need multiple inheritance (since a class can implement multiple interfaces).
+-You are designing an API where implementation details should be left to the developer.
+
+✅ Use an Abstract Class when:
+-You want to share common behavior (implemented methods) among subclasses.
+-You need to define state (fields) that should be inherited.
+-You want to provide a base class that other classes extend but with some common implementation.
