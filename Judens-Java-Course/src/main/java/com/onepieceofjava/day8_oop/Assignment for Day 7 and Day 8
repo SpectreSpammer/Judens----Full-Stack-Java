@@ -1,0 +1,92 @@
+Assignment for Day 7 and 8
+
+Create an Employee Management System that demonstrates your understanding of Java methods and Object-Oriented Programming concepts.
+
+Requirements
+
+1. Create a class called EmployeeManager with the following methods:
+
+    -addEmployee(Employee employee): Adds an employee to the system.
+
+    -removeEmployee(int employeeId): Removes an employee from the system.
+
+    -getEmployee(int employeeId): Retrieves an employee by their ID.
+
+    -calculateSalary(Employee employee): Calculates the salary of an employee.
+
+    -displayEmployeeInfo(Employee employee): Displays information about an employee.
+
+2. Implement method overloading for the addEmployee method:
+
+   -addEmployee(String name, int id, double baseSalary)
+
+   -addEmployee(String name, int id, double baseSalary, String department)
+
+3. Create an abstract class Employee with the following properties:
+
+   -name (String)
+
+   -id (int)
+
+   -baseSalary (double)
+
+ 4. Implement the following methods in the Employee class:
+
+    -Abstract method: calculateSalary()
+
+    -Concrete method: displayInfo()
+
+5. Create three subclasses that inherit from Employee:
+
+   -Manager
+
+   -Developer
+
+   -Tester
+
+   -Intern
+
+ 6. Implement the calculateSalary() method differently for each subclass:
+
+    -Manager: Base salary + 20% bonus
+
+    -Developer: Base salary + $500 tech bonus
+
+    -Intern: 50% of base salary
+
+ 7. Implement the calculateSalary() method differently for each subclass:
+
+    -Manager: Base salary + 20% bonus
+
+    -Developer: Base salary + $500 tech bonus
+
+    -Intern: 50% of base salary
+
+  8. Demonstrate encapsulation by making all properties private and providing getter and setter methods.
+
+  9. Create an interface called Trainable with a method attendTraining().
+
+  10. Implement the Trainable interface in the Intern and Developer classes.
+
+
+  Instructions
+
+  1. Start by creating the EmployeeManager class and implementing all required methods.
+
+  2. Create the abstract Employee class with its properties and methods.
+
+  3. Implement the three subclasses: Manager, Developer, and Intern.
+
+  4. Create the Trainable interface and implement it in the appropriate classes.
+
+  5.In your main method:
+
+    -Create instances of Manager, Developer, and Intern.
+
+    -Add these employees to an EmployeeManager object.
+
+    -Demonstrate the use of all methods in EmployeeManager.
+
+    -Show polymorphism by creating an array of Employee objects and calling their calculateSalary() and displayInfo() methods.
+
+    - Demonstrate the use of the Trainable interface.
