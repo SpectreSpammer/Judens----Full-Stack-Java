@@ -38,8 +38,8 @@ public class MainEmployeeManagementDay8 {
         manager.removeEmployee(2);
 
 
-        System.out.println("Getting employee with ID 2:");
-        EmployeeAbstract emp = manager.getEmployee(2);
+        System.out.println("Getting employee with ID 3:");
+        EmployeeAbstract emp = manager.getEmployee(3);
         if (emp != null) {
             manager.displayEmployeeInfo(emp);
         } else {

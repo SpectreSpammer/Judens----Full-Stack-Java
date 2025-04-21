@@ -10,8 +10,6 @@ public class EmployeeManager {
 
     public void addEmployee(EmployeeAbstract employee) {
         employees.add(employee);
-
-
     }
 
     public void addEmployee(String name, int id, double baseSalary) {
