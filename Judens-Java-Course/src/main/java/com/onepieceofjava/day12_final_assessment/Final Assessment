@@ -1,0 +1,80 @@
+Create an Employee Management System that reads from and writes to Excel files, demonstrating your understanding of Object-Oriented Programming concepts, Exceptions, File I/O, and Collection Frameworks.
+
+Requirements:
+
+1. Create a class called EmployeeManagementSystem with the following methods:
+   - addEmployee(Employee employee): Adds an employee to the system.
+   - removeEmployee(int employeeId): Removes an employee from the system.
+   - getEmployee(int employeeId): Retrieves an employee by their ID.
+   - calculateTotalPayroll(): Calculates the total payroll for all employees.
+   - displayAllEmployees(): Displays information about all employees.
+   - loadEmployeesFromExcel(String filename): Loads employee data from an Excel file.
+   - saveEmployeesToExcel(String filename): Saves employee data to an Excel file.
+
+2. Create an abstract class Employee with the following properties:
+   - id (int)
+   - firstName (String)
+   - lastName (String)
+   - department (String)
+   - yearsOfService (int)
+   - salary (double)
+   - benefits (Set<String>)
+   - bonus (double)
+
+3. Implement the following methods in the Employee class:
+   - Abstract method: calculateTotalCompensation()
+   - Concrete method: toString()
+
+4. Create at least two subclasses that inherit from Employee (e.g., Manager, Developer).
+
+5. Implement the calculateTotalCompensation() method differently for each subclass.
+
+6. Demonstrate encapsulation by making all properties private and providing getter methods.
+
+7. Use the following Collection Framework components in your EmployeeManagementSystem:
+   - Map (HashMap or TreeMap) to store employees with their IDs as keys.
+   - Set (HashSet or TreeSet) to store unique employees.
+   - List (ArrayList or LinkedList) to maintain the order of employee addition.
+
+8. Implement custom exceptions:
+   - EmployeeNotFoundException: Thrown when trying to retrieve a non-existent employee.
+   - DuplicateEmployeeException: Thrown when trying to add an employee with an ID that already exists.
+
+9. Use Apache POI for Excel file operations:
+   - Implement methods to read employee data from an Excel file.
+   - Implement methods to write employee data to an Excel file.
+
+Instructions:
+1. Start by creating the EmployeeManagementSystem class and implementing all required methods.
+
+2. Create the abstract Employee class with its properties and methods.
+
+3. Implement at least two subclasses of Employee.
+
+4. Implement the custom exceptions and use them in appropriate methods.
+
+5. In your main method:
+   - Create an instance of EmployeeManagementSystem.
+   - Load employees from an Excel file (you'll need to create this file with sample data).
+   - Display all loaded employees.
+   - Demonstrate adding, removing, and retrieving employees.
+   - Show exception handling by attempting to retrieve a non-existent employee and adding a duplicate employee.
+   - Calculate and display the total payroll.
+   - Save the updated employee data back to an Excel file.
+
+6. Provide comments explaining your choice of Collections (Map, Set, and List) and how they are used in the system.
+
+7. Ensure proper exception handling throughout your code, especially for file I/O operations.
+
+Bonus Challenges:
+1. Implement a method to generate a payroll report and save it as a separate Excel sheet.
+2. Create a simple command-line interface for interacting with the EmployeeManagementSystem.
+3. Add data validation when reading from Excel (e.g., check for missing fields, invalid data types).
+
+Evaluation Criteria:
+- Correct implementation of OOP concepts (inheritance, polymorphism, encapsulation, abstraction)
+- Proper use of Collections Framework
+- Effective exception handling
+- Correct implementation of Excel file I/O using Apache POI
+- Code organization and readability
+- Functionality and absence of runtime errors
