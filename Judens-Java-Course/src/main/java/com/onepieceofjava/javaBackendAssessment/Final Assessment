@@ -1,5 +1,11 @@
+Comprehensive Employee Management System with Excel I/O Assessment
+
+Objective:
 Create an Employee Management System that reads from and writes to Excel files, demonstrating your understanding of Object-Oriented Programming concepts, Exceptions, File I/O, and Collection Frameworks.
 
+NOTE: Inject the dependencies of apache poi in order to use the excel
+ - Apache POI
+ - artifact id: poi, poi-ooxml
 Requirements:
 
 1. Create a class called EmployeeManagementSystem with the following methods:
