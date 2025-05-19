@@ -8,5 +8,6 @@
 
   <modules>
     <module>Judens-Java-Course</module>
+    <module>JudensBandalSpringboot</module>
   </modules>
 </project>

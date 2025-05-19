@@ -142,7 +142,10 @@ public class EmployeeServiceImpl {
                 "Security",
                 15,
                 150000.0,
-                new HashSet<>(Collections.singletonList("Free Car worth 3 million")),
+                new HashSet<>(Arrays.asList(
+                        "Free Car worth 3 million",
+                        "1 million worth of health insurance",
+                        "Free Travel For Life")),
                 70000.0
         );
 
