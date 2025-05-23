@@ -90,7 +90,7 @@ public class InventoryService {
     }
 
 
-    private Employee assignAsset(long employeeId, long assetId) {
+    public Employee assignAsset(long employeeId, long assetId) {
         Optional<Employee> employeeOptional = employeesList.stream().filter(e -> e.getId().equals(employeeId)).findFirst();
         Optional<Assets> assetsOptional = assetsList.stream().filter(e -> e.getId().equals(assetId)).findFirst();
 
@@ -103,10 +103,46 @@ public class InventoryService {
 
 
     // ================ ASSETS =================
-    private Assets addAssset(Assets assets) {
+
+
+
+    public List<Assets> getAllAssets(){
+        return assetsList;
+    }
+
+    public Assets getAssetById(long assetId){
+        return assetsList.stream().filter( e -> e.getId().equals(this.assetId)).findFirst().orElse(null);
+    }
+
+
+    public Assets addAssset(Assets assets) {
         assets.setId(assetId++);
         assetsList.add(assets);
         return assets;
     }
+
+    public void deleteAssetById(Long assetId) {
+        assetsList.removeIf(e -> e.getId().equals(assetId));
+    }
+
+    public Employee removeAssetFromEmployee(Long employeeId, Long assetId){
+        Optional<Employee> employeeOptional = employeesList.stream().filter(e -> e.getId().equals(employeeId)).findFirst();
+        Optional<Assets> assetsOptional = assetsList.stream().filter(e -> e.getId().equals(assetId)).findFirst();
+
+        if(employeeOptional.isPresent() && assetsOptional.isPresent()){
+            employeeOptional.get().removeAsset(assetsOptional.get());
+            return employeeOptional.get();
+        }
+        return null;
+    }
+
+    public List<Assets> getAssetsByEmployeeId(Long employeeId) {
+        return employeesList.stream()
+                .filter(e -> e.getId().equals(employeeId))
+                .findFirst()
+                .map(Employee::getAssets)
+                .orElse(null);
+    }
+
 
 }

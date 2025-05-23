@@ -1,0 +1,391 @@
+{
+	"info": {
+		"_postman_id": "45e192d7-dc6f-4944-83b9-195d38c32c12",
+		"name": "Judens Bandal",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34715305"
+	},
+	"item": [
+		{
+			"name": "Get All Employees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 101,\r\n    \"name\": \"Judens\",\r\n    \"department\": \"IBM\",\r\n    \"assets\": [\r\n        {\r\n            \"id\": 207,\r\n            \"name\": \"Macbook\",\r\n            \"type\": \"IBM Laptop\",\r\n            \"serialNumber\": \"MC12345\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee By Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 106,\r\n        \"name\": \"Chopper\",\r\n        \"department\": \"Clinic\",\r\n        \"assets\": [\r\n           \r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 101,\r\n        \"name\": \"Judens\",\r\n        \"department\": \"Information Technology\",\r\n        \"assets\": [\r\n            {\r\n                \"id\": 201,\r\n                \"name\": \"Lenovo\",\r\n                \"type\": \"Developers Laptop\",\r\n                \"serialNumber\": \"LNV12345\"\r\n            }\r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees/101",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees",
+						"101"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees/106",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees",
+						"106"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Assets",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 101,\r\n    \"name\": \"Judens\",\r\n    \"department\": \"IBM\",\r\n    \"assets\": [\r\n        {\r\n            \"id\": 207,\r\n            \"name\": \"Macbook\",\r\n            \"type\": \"IBM Laptop\",\r\n            \"serialNumber\": \"MC12345\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employee Assets by Employee Id",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees/103/assets",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees",
+						"103",
+						"assets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Assets",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 106,\r\n        \"name\": \"Chopper\",\r\n        \"department\": \"Clinic\",\r\n        \"assets\": [\r\n           \r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees/107/assets/106",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees",
+						"107",
+						"assets",
+						"106"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add asset to specific employee",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 106,\r\n        \"name\": \"Chopper\",\r\n        \"department\": \"Clinic\",\r\n        \"assets\": [\r\n           \r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees/106/assets/206",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees",
+						"106",
+						"assets",
+						"206"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete asset from specific employee",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 106,\r\n        \"name\": \"Chopper\",\r\n        \"department\": \"Clinic\",\r\n        \"assets\": [\r\n           \r\n        ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/employees/206/assets/206",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"employees",
+						"206",
+						"assets",
+						"206"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Remove Assets",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/api/inventory/assets/206",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"inventory",
+						"assets",
+						"206"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
