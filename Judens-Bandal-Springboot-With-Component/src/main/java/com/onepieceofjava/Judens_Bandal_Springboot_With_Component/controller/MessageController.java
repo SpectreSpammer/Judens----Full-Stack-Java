@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/component/inventory")
-public class inventoryController {
+public class MessageController {
 
     @GetMapping("/employees")
     public String message(){

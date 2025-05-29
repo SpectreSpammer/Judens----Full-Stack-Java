@@ -10,5 +10,6 @@
     <module>Judens-Java-Course</module>
     <module>Judens-Bandal-Springboot-without-Component</module>
     <module>Judens-Bandal-Springboot-With-Component</module>
+    <module>Judens-Bandal-Springboot-With-Service</module>
   </modules>
 </project>

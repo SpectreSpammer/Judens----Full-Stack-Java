@@ -7,14 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Judens-Bandal-Springboot-With-Component" />
-        <module name="Judens-Bandal-Springboot-without-Component" />
         <module name="Judens-Java-Course" />
+        <module name="Judens-Bandal-Springboot-With-Service" />
+        <module name="Judens-Bandal-Springboot-without-Component" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Judens-Bandal-Springboot-With-Component" options="-parameters" />
+      <module name="Judens-Bandal-Springboot-With-Service" options="-parameters" />
       <module name="Judens-Bandal-Springboot-without-Component" options="-parameters" />
     </option>
   </component>

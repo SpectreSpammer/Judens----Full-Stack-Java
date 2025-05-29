@@ -6,7 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(basePackages = {
-		"com.onepieceofjava.Judens_Bandal_Springboot_With_Component.controller"
+		"com.onepieceofjava.Judens_Bandal_Springboot_With_Component"
 })
 
 public class JudensBandalSpringbootWithComponentApplication {
