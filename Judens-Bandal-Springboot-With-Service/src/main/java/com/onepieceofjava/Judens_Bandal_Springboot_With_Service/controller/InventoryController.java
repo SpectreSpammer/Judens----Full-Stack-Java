@@ -5,20 +5,23 @@ package com.onepieceofjava.Judens_Bandal_Springboot_With_Service.controller;
 import com.onepieceofjava.Judens_Bandal_Springboot_With_Service.model.Assets;
 import com.onepieceofjava.Judens_Bandal_Springboot_With_Service.model.Employee;
 import com.onepieceofjava.Judens_Bandal_Springboot_With_Service.service.InventoryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/inventory")
 public class InventoryController {
 
-    private final InventoryService inventoryService;
+    @Autowired
+    InventoryService inventoryService;
 
-    //constructor based dependency injecton
-    public InventoryController(InventoryService inventoryService) {
-        this.inventoryService = inventoryService;
-    }
+
 
     // ================== EMPLOYEES =====================
 
@@ -30,26 +33,64 @@ public class InventoryController {
 
     //GET by Id
     @GetMapping("/employees/{employeeId}")
-    public Employee getEmployeeById(@PathVariable Long employeeId){
+    public Optional<Employee> getEmployeeById(@PathVariable Long employeeId){
         return inventoryService.getEmployeeById(employeeId);
     }
 
     // ADD
     @PostMapping("/employees")
-    public Employee addEmployee(@RequestBody     Employee employees){
-        return inventoryService.addEmployee(employees);
+    public ResponseEntity<?> addEmployee(@RequestBody     Employee addEmployees){
+        try{
+            if(addEmployees.getName() == null || addEmployees.getName().trim().isEmpty()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Employee name cannot be null or empty");
+            }
+
+            if(addEmployees.getDepartment() == null || addEmployees.getDepartment().trim().isEmpty()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Employee department cannot be null or empty");
+            }
+            Employee savedEmployee = inventoryService.addEmployee(addEmployees);
+            return ResponseEntity.created(URI.create("/api/inventory/employees/" + savedEmployee.getId()))
+                    .body(savedEmployee);
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body(e.getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(e.getMessage());
+        }
     }
 
     // Update
     @PutMapping("/employees/{employeeId}")
-    public Employee updateEmployee(@PathVariable Long employeeId, @RequestBody Employee updateEmployee){
-        return inventoryService.updateEmployee(employeeId,updateEmployee);
+    public ResponseEntity<?> updateEmployee(@PathVariable Long employeeId, @RequestBody Employee updatedEmployee){
+        try{
+            if(updatedEmployee.getName() == null || updatedEmployee.getName().trim().isEmpty()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Employee name cannot be null or empty");
+            }
+
+            if(updatedEmployee.getDepartment() == null || updatedEmployee.getDepartment().trim().isEmpty()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Employee department cannot be null or empty");
+            }
+            Employee update = inventoryService.updateEmployee(employeeId,updatedEmployee);
+            return ResponseEntity.ok(update);
+        }catch (IllegalArgumentException e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(e.getMessage());
+        } catch (RuntimeException e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(e.getMessage());
+        }
     }
 
     // Delete
     @DeleteMapping("/employees/{employeeId}")
-    public void deleteEmployeeById(@PathVariable Long employeeId){
+    public ResponseEntity<Void> deleteEmployeeById(@PathVariable Long employeeId){
         inventoryService.deleteEmployeeById(employeeId);
+        return  ResponseEntity.noContent().build();
     }
 
     // ===================== ASSETS ======================
@@ -61,40 +102,71 @@ public class InventoryController {
     }
 
 
-    @GetMapping("/assets/{employeeId}")
-    public Assets getAssetById(@PathVariable Long assetId){
+    @GetMapping("/assets/{assetId}")
+    public Optional<Assets> getAssetById(@PathVariable Long assetId){
         return inventoryService.getAssetById(assetId);
     }
 
-    @GetMapping("/employees/{employeeId}/assets")
-    public List<Assets> getEmployeeAssetByEmployeeId(@PathVariable Long employeeId){
-        return inventoryService.getAssetsByEmployeeId(employeeId);
-    }
+
 
     //ADD
-
     @PostMapping("/assets")
-    public Assets addAssets(@RequestBody  Assets assets){
-        return inventoryService.addAssset(assets);
+    public ResponseEntity<Assets> addAssets(@RequestBody  Assets assets){
+        Assets savedAssets = inventoryService.addAssset(assets);
+        return ResponseEntity.created(URI.create("/api/inventory/assets" + savedAssets.getId()))
+                .body(savedAssets);
     }
 
+    //UPDATE
+    @PutMapping("/assets/{assetId}")
+    public ResponseEntity<?> updateAsset(@PathVariable Long assetId, @RequestBody Assets updatedAsset){
+        try{
 
-    @PostMapping("/employees/{employeeId}/assets/{assetId}")
-    public Employee addAssetToSpecificEmployee(@PathVariable Long employeeId,@PathVariable Long assetId){
-        return inventoryService.assignAsset(employeeId,assetId);
+
+
+            //validate get name
+            if(updatedAsset.getName() == null || updatedAsset.getName().trim().isEmpty()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Asset name cannot be null or empty");
+            }
+
+            //validate get type
+            if(updatedAsset.getType() == null || updatedAsset.getType().trim().isEmpty()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Asset Type cannot be null or empty");
+            }
+
+            //validate get serial
+            if(updatedAsset.getSerialNumber() == null || updatedAsset.getSerialNumber().trim().isEmpty()){
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                        .body("Asset serial number cannot be null or empty");
+            }
+
+            Assets updated = inventoryService.updateAsset(assetId,updatedAsset);
+            return ResponseEntity.ok(updated);
+        } catch (IllegalArgumentException e) {return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(e.getMessage());
+        } catch (RuntimeException e) {
+           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                           .body(e.getMessage());
+        }
+
     }
+
 
 
     //DELETE
-    @DeleteMapping("/employees/{employeeId}/assets/{assetId}")
-    public void removeAssetFromSpecificEmployee(@PathVariable Long employeeId, @PathVariable Long assetId){
-        inventoryService.removeAssetFromEmployee(employeeId,assetId);
-    }
-
     @DeleteMapping("/assets/{assetId}")
-    public void deleteAssetById(@PathVariable Long assetId){
+    public ResponseEntity<Void> deleteAssetById(@PathVariable Long assetId){
         inventoryService.deleteAssetById(assetId);
+        return ResponseEntity.noContent().build();
     }
 
+    // ===================== ASSIGNING ASSETS ======================
+    //Assignning assets to specific employee
 
+    //Delete Asset from specific employee
+
+
+    //Get asset from Specific employee
 }
