@@ -213,7 +213,7 @@ public class InventoryController {
             inventoryService.deleteAssetById(assetId);
 
 
-            return ResponseEntity.noContent().build();
+            return ResponseEntity.noContent ().build();
         }
 
         return ResponseEntity.notFound().build();
