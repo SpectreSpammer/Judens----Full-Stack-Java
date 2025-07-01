@@ -60,8 +60,6 @@ public class InventoryService {
 
     // ================ ASSETS =================
 
-
-
     //GET ALL ASSETS
     public List<Assets> getAllAssets(){
         return assetRepository.findAll();
