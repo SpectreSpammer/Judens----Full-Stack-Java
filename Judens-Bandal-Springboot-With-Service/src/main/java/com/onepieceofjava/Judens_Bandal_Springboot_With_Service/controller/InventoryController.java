@@ -77,6 +77,7 @@ public class InventoryController {
             }
             Employee update = inventoryService.updateEmployee(employeeId,updatedEmployee);
             return ResponseEntity.ok(update);
+
         }catch (IllegalArgumentException e){
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
                     .body(e.getMessage());
